@@ -65,24 +65,23 @@ actor {
 
     // Challenge 8
     public func maximum(nums : [Nat]) : async Nat {
-        var max = nums[0];
-        for (num in nums.vals()){
-            if (num > max) {
-                max := num;
+        if (nums.size() != 0) {
+            var max = nums[0];
+            for (num in nums.vals()){
+                if (num > max) {
+                    max := num;
+                };
             };
+            return max;
         };
-        return max;
+        return 0;
     };
 
     // Challenge 9
     public func remove_from_array(nums : [Nat], n : Nat) : async [Nat] {
-        var newArr : [Nat] = [];
-        for (num in nums.vals()) {
-            if (n != num) {
-                newArr := Array.append<Nat>(newArr, [num]);
-            };
-        };
-        return newArr;
+        return Array.filter(nums, func (_n : Nat) : Bool {
+            return _n != n;
+        });
     };
 
     // Challenge 10
